@@ -43,9 +43,6 @@ fun Container.equationInputPanel() {
 fun Container.graphShowPanel() {
     customTag("div", className = "graph_element",
         attributes = mapOf(Pair("id", "graph")))
-    // fixme:
-    // define graph somewhere else
-    // and here call a function that makes desmos graph from created element
     customTag("script", attributes = mapOf(Pair("src", "graph.js")))
 }
 

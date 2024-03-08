@@ -26,7 +26,7 @@ fun Container.mainView() {
 }
 
 fun Container.headerView() {
-    navbar("NavBar") {
+    navbar("cmath2_070324_1") {
         nav {
             tag(TAG.LI) {
                 link("File", icon = "fa-file")

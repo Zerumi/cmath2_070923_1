@@ -1,6 +1,6 @@
 if (!activated) {
-    const elt = document.getElementById('graph');
-    const calculator = Desmos.GraphingCalculator(elt, {
+    elt = document.getElementById('graph');
+    calculator = Desmos.GraphingCalculator(elt, {
         keypad: false,
         expressions: false,
         settingsMenu: false,
@@ -20,11 +20,4 @@ if (!activated) {
     let newDefaultState = calculator.getState();
     calculator.setDefaultState(newDefaultState);
 
-    function setExpression(expression) {
-        calculator.setExpression({
-            id: u_id,
-            latex: expression,
-            color: Desmos.Colors.RED
-        })
-    }
 }

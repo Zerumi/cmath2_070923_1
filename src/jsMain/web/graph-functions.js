@@ -1,4 +1,6 @@
 let activated = false
+let elt;
+let calculator;
 
 function drawBatmanByR(r) {
     calculator.setExpression({
@@ -60,3 +62,11 @@ function drawPointXYRes(x, y, result) {calculator.setExpression({
 }
 
 let u_id = 42
+
+function setExpression(expression) {
+    calculator.setExpression({
+        id: u_id,
+        latex: expression,
+        color: Desmos.Colors.RED
+    })
+}
