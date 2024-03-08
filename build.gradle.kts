@@ -41,10 +41,10 @@ kotlin {
     }
     js(IR) {
         browser {
-            commonWebpackConfig(Action {
+            commonWebpackConfig {
                 outputFileName = "main.bundle.js"
-            })
-            runTask(Action {
+            }
+            runTask {
                 sourceMaps = false
                 devServer = KotlinWebpackConfig.DevServer(
                     open = false,
@@ -56,12 +56,12 @@ kotlin {
                     ),
                     static = mutableListOf("${layout.buildDirectory.asFile.get()}/processedResources/js/main")
                 )
-            })
-            testTask(Action {
+            }
+            testTask {
                 useKarma {
                     useChromeHeadless()
                 }
-            })
+            }
         }
         binaries.executable()
     }
@@ -97,6 +97,7 @@ kotlin {
                 implementation("io.kvision:kvision:$kvisionVersion")
                 implementation("io.kvision:kvision-bootstrap:$kvisionVersion")
                 implementation("io.kvision:kvision-fontawesome:$kvisionVersion")
+                implementation("io.kvision:kvision-state:$kvisionVersion")
             }
         }
         val jsTest by getting {

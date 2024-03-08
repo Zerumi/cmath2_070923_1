@@ -11,6 +11,8 @@ import kotlinx.coroutines.launch
 
 val AppScope = CoroutineScope(Dispatchers.Default + SupervisorJob())
 
+external fun setExpression(expresstion : String)
+
 class App : Application() {
 
     init {
@@ -25,6 +27,9 @@ class App : Application() {
         AppScope.launch {
             //val pingResult = Model.ping("Hello world from client!")
             //root.add(Span(pingResult))
+            equation.subscribe {
+                setExpression(it)
+            }
         }
     }
 }
