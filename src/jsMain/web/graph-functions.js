@@ -1,4 +1,3 @@
-let activated = false
 let elt;
 let calculator;
 
