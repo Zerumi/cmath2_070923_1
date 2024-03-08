@@ -1,14 +1,9 @@
 package io.github.project
 
 import io.kvision.*
-import io.kvision.core.AlignItems
-import io.kvision.core.onClickLaunch
-import io.kvision.html.*
-import io.kvision.panel.hPanel
 import io.kvision.panel.root
 import io.kvision.theme.Theme
 import io.kvision.theme.ThemeManager
-import io.kvision.theme.themeSwitcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -24,8 +19,7 @@ class App : Application() {
     }
 
     override fun start(state: Map<String, Any>) {
-        val root = root("kvapp") {
-            //customTag("script", attributes = mapOf(Pair("src", "https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6")))
+        root("kvapp") {
             mainView()
         }
         AppScope.launch {

@@ -1,16 +1,11 @@
 package io.github.project
 
-import io.kvision.core.*
+import io.kvision.core.Container
 import io.kvision.form.text.textInput
 import io.kvision.html.customTag
 import io.kvision.html.div
 import io.kvision.html.p
-import io.kvision.html.tag
-import io.kvision.panel.flexPanel
-import io.kvision.panel.gridPanel
 import io.kvision.panel.hPanel
-import io.kvision.utils.perc
-import io.kvision.utils.px
 
 fun Container.noLinearEquationSolverView() {
     hPanel{
@@ -19,7 +14,7 @@ fun Container.noLinearEquationSolverView() {
         }
         options(2) {
             graphShowPanel()
-            //solutionPanel()
+            solutionPanel()
         }
     }
 }
