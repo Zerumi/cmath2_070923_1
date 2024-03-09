@@ -25,8 +25,8 @@ fun Container.noLinearEquationSolverView() {
 }
 
 val equation = ObservableValue("")
-val a = ObservableValue(-5)
-val b = ObservableValue(5)
+val a = ObservableValue(-5.0)
+val b = ObservableValue(5.0)
 val epsilon = ObservableValue("")
 
 fun Container.equationInputPanel() {
@@ -46,14 +46,14 @@ fun Container.equationInputPanel() {
                 placeholder = "Enter a..."
             }.subscribe {
                 if (it != null && it.toIntOrNull() != null) {
-                    a.setState(it.toInt())
+                    a.setState(it.toDouble())
                 }
             }
             textInput {
                 placeholder = "Enter b..."
             }.subscribe {
                 if (it != null && it.toIntOrNull() != null) {
-                    b.setState(it.toInt())
+                    b.setState(it.toDouble())
                 }
             }
             textInput {

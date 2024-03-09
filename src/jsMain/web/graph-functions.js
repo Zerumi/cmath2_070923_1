@@ -77,15 +77,15 @@ let currentBborder = -5;
 
 function setLeftBorder(a) {
     currentLborder = a;
-    currentTborder += Math.abs(a) / 2;
-    currentBborder -= Math.abs(a) / 2;
+    currentTborder = 5 + (Math.abs(a) - 5) / 2;
+    currentBborder = -5 - (Math.abs(a) - 5) / 2;
     setCalculatorState()
 }
 
 function setRightBorder(b) {
     currentRborder = b;
-    currentTborder += Math.abs(b) / 2;
-    currentBborder -= Math.abs(b) / 2;
+    currentTborder = 5 + (Math.abs(b) - 5) / 2;
+    currentBborder = -5 - (Math.abs(b) - 5) / 2;
     setCalculatorState()
 }
 

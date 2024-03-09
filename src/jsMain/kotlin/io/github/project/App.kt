@@ -13,8 +13,8 @@ import kotlinx.coroutines.launch
 val AppScope = CoroutineScope(Dispatchers.Default + SupervisorJob())
 
 external fun setExpression(expression : String)
-external fun setLeftBorder(a : Int)
-external fun setRightBorder(b : Int)
+external fun setLeftBorder(a: Double)
+external fun setRightBorder(b: Double)
 
 class App : Application() {
 
@@ -36,12 +36,12 @@ class App : Application() {
         }
         AppScope.launch {
             a.subscribe {
-                setLeftBorder(it)
+                setLeftBorder(it * 1.1)
             }
         }
         AppScope.launch {
             b.subscribe {
-                setRightBorder(it)
+                setRightBorder(it * 1.1)
             }
         }
     }
