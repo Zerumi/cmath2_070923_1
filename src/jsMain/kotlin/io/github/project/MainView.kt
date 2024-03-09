@@ -9,6 +9,7 @@ import io.kvision.navbar.nav
 import io.kvision.navbar.navForm
 import io.kvision.navbar.navbar
 import io.kvision.panel.*
+import io.kvision.theme.themeSwitcher
 
 fun Container.mainView() {
     header {
@@ -47,7 +48,7 @@ fun Container.headerView() {
         }
         nav(rightAlign = true) {
             tag(TAG.LI) {
-                link("System", icon = "fa-windows")
+                themeSwitcher(style = ButtonStyle.OUTLINESECONDARY, round = true)
             }
         }
     }

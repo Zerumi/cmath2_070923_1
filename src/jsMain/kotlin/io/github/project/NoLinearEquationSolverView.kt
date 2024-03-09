@@ -4,10 +4,7 @@ import io.github.project.parse.parseStringDesmosLatex
 import io.kvision.core.Container
 import io.kvision.form.form
 import io.kvision.form.text.textInput
-import io.kvision.html.customTag
-import io.kvision.html.div
-import io.kvision.html.label
-import io.kvision.html.p
+import io.kvision.html.*
 import io.kvision.panel.hPanel
 import io.kvision.state.ObservableValue
 import io.kvision.state.bind
@@ -27,7 +24,7 @@ fun Container.noLinearEquationSolverView() {
 val equation = ObservableValue("")
 val a = ObservableValue(-5.0)
 val b = ObservableValue(5.0)
-val epsilon = ObservableValue("")
+val epsilon = ObservableValue(0.005)
 
 fun Container.equationInputPanel() {
     div {
@@ -59,7 +56,12 @@ fun Container.equationInputPanel() {
             textInput {
                 placeholder = "Enter epsilon (0.005 by default)..."
             }.subscribe {
-                epsilon.setState(it ?: "0.005")
+                if (it != null && it.toIntOrNull() != null) {
+                    epsilon.setState(it.toDouble())
+                } else epsilon.setState(0.005)
+            }
+            button("Submit") {
+                onClick(handler = sendEquationToApi)
             }
         }
     }

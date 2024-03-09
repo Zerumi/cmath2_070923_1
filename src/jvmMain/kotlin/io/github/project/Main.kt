@@ -16,6 +16,7 @@ fun Application.main() {
     }
     val module = module {
         factoryOf(::PingService)
+        factoryOf(::EquationService)
     }
     kvisionInit(module)
 }
