@@ -69,3 +69,36 @@ function setExpression(expression) {
         color: Desmos.Colors.RED
     })
 }
+
+let currentRborder = -5;
+let currentLborder = 5;
+let currentTborder = 5;
+let currentBborder = -5;
+
+function setLeftBorder(a) {
+    currentLborder = a;
+    currentTborder += Math.abs(a) / 2;
+    currentBborder -= Math.abs(a) / 2;
+    setCalculatorState()
+}
+
+function setRightBorder(b) {
+    currentRborder = b;
+    currentTborder += Math.abs(b) / 2;
+    currentBborder -= Math.abs(b) / 2;
+    setCalculatorState()
+}
+
+function setCalculatorState() {
+    calculator.setMathBounds({
+        left: currentLborder, right: currentRborder, bottom: currentBborder, top: currentTborder
+    });
+
+    console.log(currentLborder)
+    console.log(currentRborder)
+    console.log(currentTborder)
+    console.log(currentBborder)
+
+    let newDefaultState = calculator.getState();
+    calculator.setDefaultState(newDefaultState);
+}
