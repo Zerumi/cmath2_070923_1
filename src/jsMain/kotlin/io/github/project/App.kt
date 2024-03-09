@@ -12,6 +12,8 @@ import kotlinx.coroutines.launch
 val AppScope = CoroutineScope(Dispatchers.Default + SupervisorJob())
 
 external fun setExpression(expresstion : String)
+external fun setLeftBorder(a : Int)
+external fun setRightBorder(b : Int)
 
 class App : Application() {
 
