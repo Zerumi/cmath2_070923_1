@@ -26,7 +26,7 @@ fun Container.noLinearEquationSolverView() {
 
 val equation = ObservableValue("")
 val a = ObservableValue(-5)
-val b = ObservableValue(-5)
+val b = ObservableValue(5)
 val epsilon = ObservableValue("")
 
 fun Container.equationInputPanel() {

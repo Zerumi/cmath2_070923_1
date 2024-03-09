@@ -33,9 +33,13 @@ class App : Application() {
             equation.subscribe {
                 setExpression(parseStringDesmosLatex(it))
             }
+        }
+        AppScope.launch {
             a.subscribe {
                 setLeftBorder(it)
             }
+        }
+        AppScope.launch {
             b.subscribe {
                 setRightBorder(it)
             }

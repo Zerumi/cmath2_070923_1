@@ -70,8 +70,8 @@ function setExpression(expression) {
     })
 }
 
-let currentRborder = -5;
-let currentLborder = 5;
+let currentRborder = 5;
+let currentLborder = -5;
 let currentTborder = 5;
 let currentBborder = -5;
 
