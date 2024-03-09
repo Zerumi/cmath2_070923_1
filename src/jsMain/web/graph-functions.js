@@ -1,5 +1,6 @@
 let elt;
 let calculator;
+let newDefaultState;
 
 function drawBatmanByR(r) {
     calculator.setExpression({
@@ -99,6 +100,6 @@ function setCalculatorState() {
     console.log(currentTborder)
     console.log(currentBborder)
 
-    let newDefaultState = calculator.getState();
+    newDefaultState = calculator.getState();
     calculator.setDefaultState(newDefaultState);
 }

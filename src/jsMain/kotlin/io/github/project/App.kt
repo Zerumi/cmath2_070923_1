@@ -9,6 +9,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import kotlin.math.abs
 
 val AppScope = CoroutineScope(Dispatchers.Default + SupervisorJob())
 
@@ -36,12 +37,12 @@ class App : Application() {
         }
         AppScope.launch {
             a.subscribe {
-                setLeftBorder(it * 1.1)
+                setLeftBorder(it - abs(it) * 0.1)
             }
         }
         AppScope.launch {
             b.subscribe {
-                setRightBorder(it * 1.1)
+                setRightBorder(it + abs(it) * 0.1)
             }
         }
     }
