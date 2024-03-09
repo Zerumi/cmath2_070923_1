@@ -1,6 +1,6 @@
 package io.github.project
 
-import io.github.project.parse.parseString
+import io.github.project.parse.parseStringDesmosLatex
 import io.kvision.core.Container
 import io.kvision.form.form
 import io.kvision.form.text.textInput
@@ -39,7 +39,7 @@ fun Container.equationInputPanel() {
             }
             label {
                 bind(equation) { state ->
-                    +"Your input:\n ${parseString(state)}"
+                    +"Your input:\n ${parseStringDesmosLatex(state)}"
                 }
             }
             textInput {

@@ -1,6 +1,6 @@
 package io.github.project
 
-import io.github.project.parse.parseString
+import io.github.project.parse.parseStringDesmosLatex
 import io.kvision.*
 import io.kvision.panel.root
 import io.kvision.theme.Theme
@@ -31,7 +31,7 @@ class App : Application() {
             //val pingResult = Model.ping("Hello world from client!")
             //root.add(Span(pingResult))
             equation.subscribe {
-                setExpression(parseString(it))
+                setExpression(parseStringDesmosLatex(it))
             }
             a.subscribe {
                 setLeftBorder(it)
