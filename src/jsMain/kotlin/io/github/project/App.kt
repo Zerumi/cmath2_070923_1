@@ -1,5 +1,6 @@
 package io.github.project
 
+import io.github.project.parse.parseString
 import io.kvision.*
 import io.kvision.panel.root
 import io.kvision.theme.Theme
@@ -11,7 +12,7 @@ import kotlinx.coroutines.launch
 
 val AppScope = CoroutineScope(Dispatchers.Default + SupervisorJob())
 
-external fun setExpression(expresstion : String)
+external fun setExpression(expression : String)
 external fun setLeftBorder(a : Int)
 external fun setRightBorder(b : Int)
 
@@ -30,7 +31,13 @@ class App : Application() {
             //val pingResult = Model.ping("Hello world from client!")
             //root.add(Span(pingResult))
             equation.subscribe {
-                setExpression(it)
+                setExpression(parseString(it))
+            }
+            a.subscribe {
+                setLeftBorder(it)
+            }
+            b.subscribe {
+                setRightBorder(it)
             }
         }
     }

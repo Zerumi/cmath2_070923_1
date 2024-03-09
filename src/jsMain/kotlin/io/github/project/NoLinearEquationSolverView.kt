@@ -47,7 +47,6 @@ fun Container.equationInputPanel() {
             }.subscribe {
                 if (it != null && it.toIntOrNull() != null) {
                     a.setState(it.toInt())
-                    setLeftBorder(it.toInt())
                 }
             }
             textInput {
@@ -55,7 +54,6 @@ fun Container.equationInputPanel() {
             }.subscribe {
                 if (it != null && it.toIntOrNull() != null) {
                     b.setState(it.toInt())
-                    setRightBorder(it.toInt())
                 }
             }
             textInput {

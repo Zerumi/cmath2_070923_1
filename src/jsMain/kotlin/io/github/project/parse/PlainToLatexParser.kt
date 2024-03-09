@@ -5,11 +5,10 @@ val symbolsToAddBackslash = arrayOf("sin", "cos", "tan", "cot", "pi", "sqrt", "l
 fun parseString(plain : String) : String {
     var result = plain
 
-    for (symbol in symbolsToAddBackslash) {
+    result = result.replace("\\", "")
 
-        val regex = Regex(symbol)
-        val matches = regex.findAll(result)
-        matches.map { result.addCharAtIndex('\\', it.range.first) }
+    for (symbol in symbolsToAddBackslash) {
+        result = result.replace(symbol, "\\${symbol}")
     }
 
     result = result.replace("(", "{")
@@ -17,6 +16,3 @@ fun parseString(plain : String) : String {
 
     return result
 }
-
-fun String.addCharAtIndex(char: Char, index: Int) =
-    StringBuilder(this).apply { insert(index, char) }.toString()
