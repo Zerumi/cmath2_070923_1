@@ -1,15 +1,17 @@
 package io.github.project.view
 
 import io.github.project.style.headerStyle
-import io.kvision.core.*
-import io.kvision.dropdown.dropDown
-import io.kvision.form.check.checkBox
-import io.kvision.form.text.text
-import io.kvision.html.*
+import io.kvision.core.Container
+import io.kvision.html.ButtonStyle
+import io.kvision.html.TAG
+import io.kvision.html.header
+import io.kvision.html.tag
 import io.kvision.navbar.nav
-import io.kvision.navbar.navForm
 import io.kvision.navbar.navbar
-import io.kvision.panel.*
+import io.kvision.panel.SideTabSize
+import io.kvision.panel.TabPosition
+import io.kvision.panel.tab
+import io.kvision.panel.tabPanel
 import io.kvision.theme.themeSwitcher
 
 fun Container.mainView() {
@@ -29,24 +31,6 @@ fun Container.mainView() {
 
 fun Container.headerView() {
     navbar("cmath2_070324_1") {
-        nav {
-            tag(TAG.LI) {
-                link("File", icon = "fa-file")
-            }
-            tag(TAG.LI) {
-                link("Edit", icon = "fa-bars")
-            }
-            dropDown(
-                "Favourites",
-                listOf("Basic formatting" to "#!/basic", "Forms" to "#!/forms"),
-                icon = "fa-star",
-                forNavbar = true
-            )
-        }
-        navForm {
-            text(label = "Search:")
-            checkBox()
-        }
         nav(rightAlign = true) {
             tag(TAG.LI) {
                 themeSwitcher(style = ButtonStyle.OUTLINESECONDARY, round = true)

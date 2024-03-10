@@ -67,7 +67,7 @@ fun Container.equationInputPanel() {
                 }
             }
             textInput {
-                placeholder = "Enter epsilon (0.005 by default)..."
+                placeholder = "Enter epsilon (0.005)..."
             }.subscribe {
                 if (it != null && it.toDoubleOrNull() != null) {
                     epsilon.setState(it.toDouble())
@@ -100,6 +100,6 @@ lateinit var solutionPanel: Div
 
 fun Container.solutionPanel() {
     solutionPanel = div (className = "solution_element") {
-        p("solution")
+        p("Your solution will appear here...")
     }
 }
