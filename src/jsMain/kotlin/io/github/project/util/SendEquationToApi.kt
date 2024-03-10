@@ -21,15 +21,21 @@ val sendEquationToApi: Button.(MouseEvent) -> Unit = {
         solutionPanel.removeAll()
         solutionPanel.add(if (result.validResult) {
             div {
-                label("Solution: " + result.result + " (function result : " + result.functionResult + ")")
+                label("Solution: ${result.result}")
                 br()
-                label("Solved by method: " + result.solvingMethod)
+                label("Function Result: ${result.functionResult}")
                 br()
-                label("Amount of iterations: " + result.amountOfIterations)
+                label("Solved by method: ${result.solvingMethod}")
+                br()
+                label("Amount of iterations: ${result.amountOfIterations}")
+                br()
             }
         } else {
             div {
-                label("Error: " + result.errorObject.errorMessage)
+                label("Error: ")
+                br()
+                label(result.errorObject.errorMessage)
+                br()
             }
         })
     }
