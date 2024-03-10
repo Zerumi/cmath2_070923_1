@@ -1,11 +1,11 @@
 package io.github.project.method
 
 import io.github.project.EquationService
-import io.github.project.data.EquationError
 import io.github.project.data.EquationParams
 import io.github.project.data.EquationResult
 import io.github.project.data.SolvingMethod
 import io.github.project.exception.LowEfficiencyMethodException
+import kotlin.math.abs
 
 class NewtonMethod : ISolvingMethod {
     override fun solveEquation(equationParams: EquationParams): EquationResult {
@@ -16,10 +16,11 @@ class NewtonMethod : ISolvingMethod {
         var xRes = (equationParams.a + equationParams.b) / 2
         var yRes = EquationService.calculateFunction(f, xRes)
 
-        while (yRes > equationParams.epsilon) {
+        while (abs(yRes) > equationParams.epsilon) {
             val yFirstDer = EquationService.calculateDerivative(f, xRes)
             val ySecondDer = EquationService.calculateNDerivative(f, xRes, 2u)
-            if (yFirstDer * ySecondDer <= 0) throw LowEfficiencyMethodException()
+            if (yRes * ySecondDer <= 0)
+                throw LowEfficiencyMethodException()
 
             xRes -= (yRes / yFirstDer)
             yRes = EquationService.calculateFunction(f, xRes)
