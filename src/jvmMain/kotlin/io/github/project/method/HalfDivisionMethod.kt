@@ -1,7 +1,6 @@
 package io.github.project.method
 
 import io.github.project.EquationService
-import io.github.project.data.EquationError
 import io.github.project.data.EquationParams
 import io.github.project.data.EquationResult
 import io.github.project.data.SolvingMethod
@@ -32,12 +31,8 @@ class HalfDivisionMethod : ISolvingMethod {
         }
 
         val xRes = (a + b) / 2
-        val fXRes = EquationService.calculateFunction(equation, xRes)
+        val yRes = EquationService.calculateFunction(equation, xRes)
 
-        val result = EquationResult(
-            true, EquationError.ok(), SolvingMethod.HALF_DIVISION_METHOD, xRes, fXRes, iterations
-        )
-
-        return result
+        return EquationResult.ok(SolvingMethod.HALF_DIVISION_METHOD, xRes, yRes, iterations)
     }
 }

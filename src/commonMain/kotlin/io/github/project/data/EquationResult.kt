@@ -12,6 +12,17 @@ data class EquationResult(
     val amountOfIterations: UInt,
 ) {
     companion object {
+        fun ok(
+            solvingMethod: SolvingMethod,
+            result: Double,
+            functionResult: Double,
+            amountOfIterations: UInt
+        ): EquationResult {
+            return EquationResult(
+                true, EquationError.ok(), solvingMethod, result, functionResult, amountOfIterations
+            )
+        }
+
         fun bad(errorObject: EquationError, solvingMethod: SolvingMethod): EquationResult {
             return EquationResult(
                 false,

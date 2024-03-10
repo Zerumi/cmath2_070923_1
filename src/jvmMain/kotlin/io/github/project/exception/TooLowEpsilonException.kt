@@ -1,3 +1,3 @@
 package io.github.project.exception
 
-class TooLowEpsilonException : Exception("Please, provide epsilon > 0")
+class TooLowEpsilonException : CalculationException(2, "Please, provide epsilon > 0")

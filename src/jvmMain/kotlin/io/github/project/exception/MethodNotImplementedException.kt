@@ -1,3 +1,3 @@
 package io.github.project.exception
 
-class MethodNotImplementedException : Exception("This method is not implemented yet")
+class MethodNotImplementedException : CalculationException(5, "This method is not implemented yet")
