@@ -3,6 +3,7 @@ package io.github.project.util
 import io.github.project.AppScope
 import io.github.project.data.EquationParams
 import io.github.project.model.EquationModel
+import io.github.project.parse.plainToBackParse
 import io.github.project.view.*
 import io.kvision.html.Button
 import io.kvision.html.br
@@ -13,7 +14,7 @@ import org.w3c.dom.events.MouseEvent
 
 val sendEquationToApi: Button.(MouseEvent) -> Unit = {
     val equationParams = EquationParams(
-        equation.getState(), a.getState(), b.getState(), epsilon.getState(), sMethod.getState()
+        plainToBackParse(equation.getState()), a.getState(), b.getState(), epsilon.getState(), sMethod.getState()
     )
     AppScope.launch {
         val result = EquationModel.sendSolveEquationRequest(equationParams)
