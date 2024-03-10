@@ -33,11 +33,12 @@ class SimpleIterationMethod : ISolvingMethod {
         val phiDerA = EquationService.calculateDerivative(phi, a)
         val phiDerB = EquationService.calculateDerivative(phi, b)
 
-        if (phiDerA > 1 || phiDerB > 1) throw LowEfficiencyMethodException()
+        if (abs(phiDerA) > 1 || abs(phiDerB) > 1) throw LowEfficiencyMethodException()
 
         var xLast = maximumOfDer
         var xNext = EquationService.calculateFunction(phi, xLast)
         while (abs(xNext - xLast) > epsilon) {
+            if (iterations > 1000u) throw LowEfficiencyMethodException()
             xLast = xNext
             xNext = EquationService.calculateFunction(phi, xLast)
             iterations++
