@@ -1,7 +1,6 @@
 package io.github.project.view
 
 import io.github.project.data.SolvingMethod
-import io.github.project.parse.parseStringDesmosLatex
 import io.github.project.util.availableMethods
 import io.github.project.util.sendEquationToApi
 import io.kvision.core.Container
@@ -12,7 +11,6 @@ import io.kvision.form.text.textInput
 import io.kvision.html.*
 import io.kvision.panel.hPanel
 import io.kvision.state.ObservableValue
-import io.kvision.state.bind
 
 fun Container.noLinearEquationSolverView() {
     hPanel {
@@ -35,6 +33,7 @@ val sMethod = ObservableValue(SolvingMethod.HALF_DIVISION_METHOD)
 fun Container.equationInputPanel() {
     div (className = "input_element") {
         form {
+            setStyle("padding", "3px")
             div {
                 textInput {
                     display = Display.INLINEBLOCK
@@ -45,11 +44,6 @@ fun Container.equationInputPanel() {
                 }
                 label("=0") {
                     display = Display.INLINEBLOCK
-                }
-            }
-            label {
-                bind(equation) { state ->
-                    +"Your input:\n ${parseStringDesmosLatex(state)}"
                 }
             }
             textInput {

@@ -1,12 +1,15 @@
 .input_element {
+    margin: 2px;
     width: 20%;
 }
 
 .graph_element {
+    margin: 2px;
     aspect-ratio: 1 / 1;
     width: 45%;
 }
 
 .solution_element {
+    margin: 2px;
     width: 20%;
 }

@@ -1,6 +1,6 @@
 package io.github.project.view
 
-import io.github.project.style.headerStyle
+import io.github.project.style.borderStyle
 import io.kvision.core.Container
 import io.kvision.html.ButtonStyle
 import io.kvision.html.TAG
@@ -16,7 +16,7 @@ import io.kvision.theme.themeSwitcher
 
 fun Container.mainView() {
     header {
-        addCssStyle(headerStyle)
+        addCssStyle(borderStyle)
         headerView()
     }
     tabPanel(tabPosition = TabPosition.LEFT, sideTabSize = SideTabSize.SIZE_2) {
