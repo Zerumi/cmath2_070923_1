@@ -17,7 +17,7 @@ val sendEquationToApi: Button.(MouseEvent) -> Unit = {
     )
     AppScope.launch {
         val result = EquationModel.sendSolveEquationRequest(equationParams)
-        solutionPanel.clearParent()
+        solutionPanel.removeAll()
         solutionPanel.add(if (result.validResult) {
             div {
                 label("Solution: " + result.result + " (function result : " + result.functionResult + ")")
