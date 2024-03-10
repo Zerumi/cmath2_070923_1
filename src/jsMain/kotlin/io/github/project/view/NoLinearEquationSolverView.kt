@@ -1,7 +1,8 @@
-package io.github.project
+package io.github.project.view
 
 import io.github.project.data.SolvingMethod
 import io.github.project.parse.parseStringDesmosLatex
+import io.github.project.util.sendEquationToApi
 import io.kvision.core.Container
 import io.kvision.form.form
 import io.kvision.form.text.textInput

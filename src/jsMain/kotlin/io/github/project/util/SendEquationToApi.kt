@@ -1,6 +1,9 @@
-package io.github.project
+package io.github.project.util
 
+import io.github.project.AppScope
 import io.github.project.data.EquationParams
+import io.github.project.model.EquationModel
+import io.github.project.view.*
 import io.kvision.html.Button
 import io.kvision.html.br
 import io.kvision.html.div

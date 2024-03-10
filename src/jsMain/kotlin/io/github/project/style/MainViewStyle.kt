@@ -1,4 +1,4 @@
-package io.github.project
+package io.github.project.style
 
 import io.kvision.core.*
 import io.kvision.utils.px

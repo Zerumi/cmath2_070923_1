@@ -1,6 +1,10 @@
 package io.github.project
 
 import io.github.project.parse.parseStringDesmosLatex
+import io.github.project.view.a
+import io.github.project.view.b
+import io.github.project.view.equation
+import io.github.project.view.mainView
 import io.kvision.*
 import io.kvision.panel.root
 import io.kvision.theme.Theme

@@ -1,5 +1,6 @@
-package io.github.project
+package io.github.project.model
 
+import io.github.project.IPingService
 import io.kvision.remote.getService
 
 object Model {

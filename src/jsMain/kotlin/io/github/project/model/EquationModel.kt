@@ -1,5 +1,6 @@
-package io.github.project
+package io.github.project.model
 
+import io.github.project.IEquationService
 import io.github.project.data.EquationParams
 import io.github.project.data.EquationResult
 import io.kvision.remote.getService

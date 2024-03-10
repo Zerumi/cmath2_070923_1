@@ -1,5 +1,6 @@
-package io.github.project
+package io.github.project.view
 
+import io.github.project.style.headerStyle
 import io.kvision.core.*
 import io.kvision.dropdown.dropDown
 import io.kvision.form.check.checkBox

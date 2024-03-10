@@ -1,4 +1,4 @@
-package io.github.project
+package io.github.project.view
 
 import io.kvision.core.Container
 import io.kvision.html.div
