@@ -4,6 +4,8 @@ import io.github.project.data.EquationError
 import io.github.project.data.EquationParams
 import io.github.project.data.EquationResult
 import io.github.project.data.SolvingMethod
+import io.github.project.exception.MethodNotImplementedException
+import io.github.project.exception.MoreThanOneRootException
 import io.github.project.exception.NoRootException
 import io.github.project.exception.TooLowEpsilonException
 import io.github.project.method.HalfDivisionMethod
@@ -56,20 +58,24 @@ actual class EquationService : IEquationService {
         // kotlin is not supporting multi catch like in Java https://youtrack.jetbrains.com/issue/KT-7128
         try {
             validateFunction(equationParams)
-        } catch (e : TooLowEpsilonException) {
+            return methods[equationParams.solvingMethod]?.solveEquation(equationParams)
+                ?: throw MethodNotImplementedException()
+        } catch (e: NotImplementedError) {
+            return EquationResult.bad(
+                EquationError(1, e.message ?: NO_MESSAGE), equationParams.solvingMethod
+            )
+        } catch (e: TooLowEpsilonException) {
             return EquationResult.bad(
                 EquationError(2, e.message ?: NO_MESSAGE), equationParams.solvingMethod
             )
-        } catch (e : NoRootException) {
+        } catch (e: NoRootException) {
             return EquationResult.bad(
                 EquationError(3, e.message ?: NO_MESSAGE), equationParams.solvingMethod
             )
+        } catch (e: MoreThanOneRootException) {
+            return EquationResult.bad(
+                EquationError(4, e.message ?: NO_MESSAGE), equationParams.solvingMethod
+            )
         }
-
-        return methods[equationParams.solvingMethod]?.solveEquation(equationParams) ?: EquationResult.bad(
-            EquationError(
-                1, "This method is not implemented yet"
-            ), equationParams.solvingMethod
-        )
     }
 }
