@@ -1,11 +1,26 @@
 package io.github.project.data
 
-import io.kvision.types.Decimal
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class EquationResult(
-    @Contextual
-    val result : Decimal
-)
+    val validResult: Boolean,
+    val errorObject: EquationError,
+    val solvingMethod: SolvingMethod,
+    val result: Double,
+    val functionResult: Double,
+    val amountOfIterations: UInt,
+) {
+    companion object {
+        fun bad(errorObject: EquationError, solvingMethod: SolvingMethod): EquationResult {
+            return EquationResult(
+                false,
+                errorObject,
+                solvingMethod,
+                0.0,
+                0.0,
+                0u,
+            )
+        }
+    }
+}

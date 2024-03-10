@@ -84,6 +84,7 @@ kotlin {
                 implementation("io.ktor:ktor-server-auth:$ktorVersion")
                 implementation("io.ktor:ktor-server-compression:$ktorVersion")
                 implementation("ch.qos.logback:logback-classic:$logbackVersion")
+                implementation("org.mariuszgromada.math:MathParser.org-mXparser:5.2.1")
             }
         }
         val jvmTest by getting {

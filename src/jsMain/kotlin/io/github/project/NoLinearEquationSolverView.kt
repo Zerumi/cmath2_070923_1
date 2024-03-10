@@ -1,5 +1,6 @@
 package io.github.project
 
+import io.github.project.data.SolvingMethod
 import io.github.project.parse.parseStringDesmosLatex
 import io.kvision.core.Container
 import io.kvision.form.form
@@ -25,6 +26,7 @@ val equation = ObservableValue("")
 val a = ObservableValue(-5.0)
 val b = ObservableValue(5.0)
 val epsilon = ObservableValue(0.005)
+val method = ObservableValue(SolvingMethod.HALF_DIVISION_METHOD)
 
 fun Container.equationInputPanel() {
     div {
@@ -56,7 +58,7 @@ fun Container.equationInputPanel() {
             textInput {
                 placeholder = "Enter epsilon (0.005 by default)..."
             }.subscribe {
-                if (it != null && it.toIntOrNull() != null) {
+                if (it != null && it.toDoubleOrNull() != null) {
                     epsilon.setState(it.toDouble())
                 } else epsilon.setState(0.005)
             }
@@ -75,6 +77,10 @@ fun Container.graphShowPanel() {
     customTag("script", attributes = mapOf(Pair("src", "graph.js")))
 }
 
+lateinit var solutionPanel : Div
+
 fun Container.solutionPanel() {
-    div { p("solution") }
+    solutionPanel = div {
+        p("solution")
+    }
 }

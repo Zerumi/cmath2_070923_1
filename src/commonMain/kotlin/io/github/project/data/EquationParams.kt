@@ -7,5 +7,6 @@ data class EquationParams(
     val equation : String,
     val a : Double,
     val b : Double,
-    val epsilon : Double
+    val epsilon : Double,
+    val solvingMethod: SolvingMethod,
 )
