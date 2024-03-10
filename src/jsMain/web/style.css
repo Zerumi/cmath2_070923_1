@@ -1,4 +1,12 @@
+.input_element {
+    width: 20%;
+}
+
 .graph_element {
-    width: 500px;
-    height: 500px;
+    aspect-ratio: 1 / 1;
+    width: 45%;
+}
+
+.solution_element {
+    width: 20%;
 }

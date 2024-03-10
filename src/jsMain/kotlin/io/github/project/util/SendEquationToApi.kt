@@ -13,7 +13,7 @@ import org.w3c.dom.events.MouseEvent
 
 val sendEquationToApi: Button.(MouseEvent) -> Unit = {
     val equationParams = EquationParams(
-        equation.getState(), a.getState(), b.getState(), epsilon.getState(), method.getState()
+        equation.getState(), a.getState(), b.getState(), epsilon.getState(), sMethod.getState()
     )
     AppScope.launch {
         val result = EquationModel.sendSolveEquationRequest(equationParams)

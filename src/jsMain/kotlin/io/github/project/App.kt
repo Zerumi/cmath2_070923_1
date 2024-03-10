@@ -54,6 +54,6 @@ class App : Application() {
 
 fun main() {
     startApplication(
-        ::App, module.hot, BootstrapModule, BootstrapCssModule, FontAwesomeModule, CoreModule
+        ::App, module.hot, BootstrapModule, BootstrapCssModule, FontAwesomeModule, CoreModule,
     )
 }

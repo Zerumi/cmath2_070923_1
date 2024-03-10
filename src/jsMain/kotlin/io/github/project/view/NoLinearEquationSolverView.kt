@@ -2,9 +2,12 @@ package io.github.project.view
 
 import io.github.project.data.SolvingMethod
 import io.github.project.parse.parseStringDesmosLatex
+import io.github.project.util.availableMethods
 import io.github.project.util.sendEquationToApi
 import io.kvision.core.Container
+import io.kvision.core.Display
 import io.kvision.form.form
+import io.kvision.form.select.select
 import io.kvision.form.text.textInput
 import io.kvision.html.*
 import io.kvision.panel.hPanel
@@ -27,15 +30,22 @@ val equation = ObservableValue("")
 val a = ObservableValue(-5.0)
 val b = ObservableValue(5.0)
 val epsilon = ObservableValue(0.005)
-val method = ObservableValue(SolvingMethod.HALF_DIVISION_METHOD)
+val sMethod = ObservableValue(SolvingMethod.HALF_DIVISION_METHOD)
 
 fun Container.equationInputPanel() {
-    div {
+    div (className = "input_element") {
         form {
-            textInput(init = {
-                placeholder = "Enter equation here..."
-            }).subscribe {
-                equation.setState(it ?: "")
+            div {
+                textInput {
+                    display = Display.INLINEBLOCK
+                    setStyle("width", "calc(100% - 20px)")
+                    placeholder = "Enter equation here..."
+                }.subscribe {
+                    equation.setState(it ?: "")
+                }
+                label("=0") {
+                    display = Display.INLINEBLOCK
+                }
             }
             label {
                 bind(equation) { state ->
@@ -63,6 +73,14 @@ fun Container.equationInputPanel() {
                     epsilon.setState(it.toDouble())
                 } else epsilon.setState(0.005)
             }
+            select {
+                options = availableMethods
+                selectedIndex = 0
+            }.subscribe {
+                if (it != null) {
+                    sMethod.setState(enumValueOf<SolvingMethod>(it))
+                }
+            }
             button("Submit") {
                 onClick(handler = sendEquationToApi)
             }
@@ -81,7 +99,7 @@ fun Container.graphShowPanel() {
 lateinit var solutionPanel: Div
 
 fun Container.solutionPanel() {
-    solutionPanel = div {
+    solutionPanel = div (className = "solution_element") {
         p("solution")
     }
 }
