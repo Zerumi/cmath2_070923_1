@@ -34,8 +34,9 @@ class HalfDivisionMethod : ISolvingMethod {
         val xRes = (a + b) / 2
         val fXRes = EquationService.calculateFunction(equation, xRes)
 
-        val result = EquationResult(true,
-            EquationError.ok(), SolvingMethod.HALF_DIVISION_METHOD, xRes, fXRes, iterations)
+        val result = EquationResult(
+            true, EquationError.ok(), SolvingMethod.HALF_DIVISION_METHOD, xRes, fXRes, iterations
+        )
 
         return result
     }

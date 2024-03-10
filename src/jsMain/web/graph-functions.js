@@ -48,26 +48,21 @@ function drawPoint(x, y, r) {
 
 function drawPointXY(x, y) {
     calculator.setExpression({
-        id: x + '' + y,
-        latex: '(' + x + ', ' + y + ')',
-        color: Desmos.Colors.RED
+        id: x + '' + y, latex: '(' + x + ', ' + y + ')', color: Desmos.Colors.RED
     });
 }
 
-function drawPointXYRes(x, y, result) {calculator.setExpression({
-    id: x + '' + y,
-    latex: '(' + x + ', ' + y + ')',
-    color: result ? Desmos.Colors.PURPLE : Desmos.Colors.BLUE
-});
+function drawPointXYRes(x, y, result) {
+    calculator.setExpression({
+        id: x + '' + y, latex: '(' + x + ', ' + y + ')', color: result ? Desmos.Colors.PURPLE : Desmos.Colors.BLUE
+    });
 }
 
 let u_id = 42
 
 function setExpression(expression) {
     calculator.setExpression({
-        id: u_id,
-        latex: expression,
-        color: Desmos.Colors.RED
+        id: u_id, latex: expression, color: Desmos.Colors.RED
     })
 }
 

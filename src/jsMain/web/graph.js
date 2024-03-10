@@ -13,7 +13,7 @@ calculator = Desmos.GraphingCalculator(elt, {
 });
 
 calculator.setMathBounds({
-    left: -5*1.1, right: 5*1.1, bottom: -5 - ((5*1.1 - 5) / 2), top: 5 + ((5*1.1 - 5) / 2)
+    left: -5 * 1.1, right: 5 * 1.1, bottom: -5 - ((5 * 1.1 - 5) / 2), top: 5 + ((5 * 1.1 - 5) / 2)
 });
 
 newDefaultState = calculator.getState();

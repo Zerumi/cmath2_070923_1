@@ -6,5 +6,5 @@ import io.kvision.annotations.KVService
 
 @KVService
 interface IEquationService {
-    suspend fun solveEquation(equationParams: EquationParams) : EquationResult
+    suspend fun solveEquation(equationParams: EquationParams): EquationResult
 }

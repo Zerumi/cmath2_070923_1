@@ -4,9 +4,9 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class EquationParams(
-    val equation : String,
-    val a : Double,
-    val b : Double,
-    val epsilon : Double,
+    val equation: String,
+    val a: Double,
+    val b: Double,
+    val epsilon: Double,
     val solvingMethod: SolvingMethod,
 )

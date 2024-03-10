@@ -13,7 +13,7 @@ import kotlin.math.abs
 
 val AppScope = CoroutineScope(Dispatchers.Default + SupervisorJob())
 
-external fun setExpression(expression : String)
+external fun setExpression(expression: String)
 external fun setLeftBorder(a: Double)
 external fun setRightBorder(b: Double)
 
@@ -50,11 +50,6 @@ class App : Application() {
 
 fun main() {
     startApplication(
-        ::App,
-        module.hot,
-        BootstrapModule,
-        BootstrapCssModule,
-        FontAwesomeModule,
-        CoreModule
+        ::App, module.hot, BootstrapModule, BootstrapCssModule, FontAwesomeModule, CoreModule
     )
 }

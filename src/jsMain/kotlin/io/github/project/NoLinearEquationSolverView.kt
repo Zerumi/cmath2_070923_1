@@ -77,7 +77,7 @@ fun Container.graphShowPanel() {
     customTag("script", attributes = mapOf(Pair("src", "graph.js")))
 }
 
-lateinit var solutionPanel : Div
+lateinit var solutionPanel: Div
 
 fun Container.solutionPanel() {
     solutionPanel = div {
