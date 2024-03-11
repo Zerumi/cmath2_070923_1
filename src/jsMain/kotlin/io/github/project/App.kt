@@ -52,8 +52,8 @@ class App : Application() {
         AppScope.launch {
             equations.subscribe {
                 if (equations.size != 2) return@subscribe
-                setSystemExpression1("${parseStringDesmosLatex(it[0]).replace("=0","")}=0")
-                setSystemExpression2("${parseStringDesmosLatex(it[1]).replace("=0","")}=0")
+                setSystemExpression1("${parseStringDesmosLatex(it[0]).replace("=0", "")}=0")
+                setSystemExpression2("${parseStringDesmosLatex(it[1]).replace("=0", "")}=0")
             }
         }
     }

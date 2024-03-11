@@ -22,7 +22,7 @@ class NewtonMethod : ISystemSolvingMethod {
 
         try {
             val foundSymbols = mutableSetOf<String>()
-            equationSystemParams.equations.map { it ->
+            equationSystemParams.equations.map {
                 val regex = Regex("""(\b[a-z]\b|[a-z]_[0-9]*)""")
                 val matches = regex.findAll(it)
                 for (match in matches) {
@@ -87,7 +87,7 @@ class NewtonMethod : ISystemSolvingMethod {
                 iterations,
                 calculateErrorVector(equationSystemParams.equations, result)
             )
-        } catch (e : Throwable) {
+        } catch (e: Throwable) {
             throw IncorrectParametersException()
         }
     }

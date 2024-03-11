@@ -5,7 +5,7 @@ import kotlin.math.sqrt
 
 class FunctionUtil {
     companion object {
-        fun findMaximum(f: (Double) -> Double, left: Double, right: Double, epsilon: Double) : Double {
+        fun findMaximum(f: (Double) -> Double, left: Double, right: Double, epsilon: Double): Double {
             val goldenRatio = (1 + sqrt(5.0)) / 2
             val resGoldenRatio = 2 - goldenRatio
             val oneMinusResGR = 1 - resGoldenRatio

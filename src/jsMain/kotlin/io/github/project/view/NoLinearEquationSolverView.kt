@@ -31,7 +31,7 @@ val epsilon = ObservableValue(0.005)
 val sMethod = ObservableValue(EquationSolvingMethod.HALF_DIVISION_METHOD)
 
 fun Container.equationInputPanel() {
-    div (className = "input_element") {
+    div(className = "input_element") {
         form {
             setStyle("padding", "3px")
             div {
@@ -93,7 +93,7 @@ fun Container.graphShowPanel() {
 lateinit var solutionEquationPanel: Div
 
 fun Container.solutionEquationPanel() {
-    solutionEquationPanel = div (className = "solution_element") {
+    solutionEquationPanel = div(className = "solution_element") {
         p("Your solution will appear here...")
     }
 }

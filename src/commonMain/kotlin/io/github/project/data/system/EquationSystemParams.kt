@@ -6,6 +6,6 @@ import kotlinx.serialization.Serializable
 data class EquationSystemParams(
     val equations: List<String>,
     val startApproximation: Map<String, Double>,
-    val epsilon : Double,
+    val epsilon: Double,
     val equationSystemSolvingMethod: EquationSystemSolvingMethod,
 )

@@ -26,12 +26,12 @@ fun Container.noLinearEquationsSystemSolverView() {
     }
 }
 
-val equations = observableListOf("","")
+val equations = observableListOf("", "")
 val startApproximationNames = observableListOf("x", "y")
 val startApproximation = observableListOf(0.0, 0.0)
 val sSystemMethod = ObservableValue(EquationSystemSolvingMethod.NEWTON_METHOD)
-lateinit var inputForm : Div
-lateinit var inputNames : Div
+lateinit var inputForm: Div
+lateinit var inputNames: Div
 
 val addedChildren = mutableListOf<Component>()
 val addedNamesChildren = mutableListOf<Component>()
@@ -158,7 +158,7 @@ fun Container.inputSystemPanel() {
     }
 }
 
-lateinit var solutionSystemPanel : Div
+lateinit var solutionSystemPanel: Div
 
 fun Container.solutionSystemPanel() {
     solutionSystemPanel = div(className = "solution_element") {

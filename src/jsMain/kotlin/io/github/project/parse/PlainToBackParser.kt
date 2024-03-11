@@ -2,7 +2,7 @@ package io.github.project.parse
 
 val symbolsToCheck = arrayOf("sin", "cos", "tan", "cot")
 
-fun plainToBackParse(plain : String) : String {
+fun plainToBackParse(plain: String): String {
     var result = plain
     result = result.replace("\\", "")
 

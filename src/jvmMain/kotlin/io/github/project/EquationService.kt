@@ -4,7 +4,10 @@ import io.github.project.data.EquationError
 import io.github.project.data.equation.EquationParams
 import io.github.project.data.equation.EquationResult
 import io.github.project.data.equation.EquationSolvingMethod
-import io.github.project.exception.*
+import io.github.project.exception.CalculationException
+import io.github.project.exception.MethodNotImplementedException
+import io.github.project.exception.NoRootException
+import io.github.project.exception.TooLowEpsilonException
 import io.github.project.method.equation.HalfDivisionMethod
 import io.github.project.method.equation.NewtonMethod
 import io.github.project.method.equation.SimpleIterationMethod
@@ -13,9 +16,10 @@ import org.mariuszgromada.math.mxparser.Expression
 
 actual class EquationService : IEquationService {
     companion object {
-        fun validateEpsilon(epsilon : Double) {
+        fun validateEpsilon(epsilon: Double) {
             if (epsilon <= 0) throw TooLowEpsilonException()
         }
+
         fun validateFunction(equationParams: EquationParams) {
             validateEpsilon(equationParams.epsilon)
 

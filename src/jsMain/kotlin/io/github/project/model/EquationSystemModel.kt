@@ -8,7 +8,7 @@ import io.kvision.remote.getService
 object EquationSystemModel {
     private val equationSystemService = getService<IEquationSystemService>()
 
-    suspend fun solveEquationSystemRequest(equationSystemParams: EquationSystemParams) : EquationSystemResult {
+    suspend fun solveEquationSystemRequest(equationSystemParams: EquationSystemParams): EquationSystemResult {
         return equationSystemService.solveEquationSystem(equationSystemParams)
     }
 }

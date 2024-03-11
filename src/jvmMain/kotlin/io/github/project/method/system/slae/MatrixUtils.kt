@@ -73,8 +73,8 @@ class MatrixUtils {
             for (i in 0..<matrix.getDimension()) {
                 val matrixRow = matrix.getMatrixRow(i)
                 if (matrixRow.copyOfRange(0, matrix.getDimension()).all {
-                            it == BigDecimal.ZERO.setScale(matrix.getValueScale())
-                        }) return true
+                        it == BigDecimal.ZERO.setScale(matrix.getValueScale())
+                    }) return true
             }
 
             return false

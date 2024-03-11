@@ -15,9 +15,9 @@ class SLAESolutionChecker(private val slaeSolution: SLAESolution) {
             var solutionResult = BigDecimal.ZERO.setScale(slaeSolution.sourceSystem.getValueScale())
             for (j in 0..<slaeSolution.solutionVector.size) {
                 solutionResult = solutionResult.add(
-                        slaeVector[j].multiply(slaeSolution.solutionVector[j])
-                            .setScale(slaeSolution.sourceSystem.getValueScale(), RoundingMode.HALF_UP)
-                    )
+                    slaeVector[j].multiply(slaeSolution.solutionVector[j])
+                        .setScale(slaeSolution.sourceSystem.getValueScale(), RoundingMode.HALF_UP)
+                )
             }
             result[i] = slaeVector[slaeSolution.solutionVector.size].subtract(solutionResult).abs()
         }

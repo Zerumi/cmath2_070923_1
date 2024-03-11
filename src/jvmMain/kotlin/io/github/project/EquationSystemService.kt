@@ -19,14 +19,14 @@ actual class EquationSystemService : IEquationSystemService {
             EquationService.validateEpsilon(equationSystemParams.epsilon)
         }
 
-        fun calculateDerivativeByVariable(equation : String, variable: String, variables: Map<String, Double>) : Double {
+        fun calculateDerivativeByVariable(equation: String, variable: String, variables: Map<String, Double>): Double {
             val argument = variables.map { Argument("${it.key} = ${it.value}") }.toTypedArray()
             val expression = Expression("der($equation, $variable)", *argument)
             val result = expression.calculate()
             return result
         }
 
-        fun calculateFunctionWithMultipleArguments(f: String, arguments : Map<String, Double>) : Double {
+        fun calculateFunctionWithMultipleArguments(f: String, arguments: Map<String, Double>): Double {
             val argumentsString = arguments.map { it.key }.joinToString()
             val valuesString = arguments.map { it.value }.joinToString()
             val function = Function("f($argumentsString) = $f")
