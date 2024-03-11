@@ -4,9 +4,24 @@ let newDefaultState;
 
 let u_id = 42
 
+let su_id1 = 43
+let su_id2 = 443
+
 function setExpression(expression) {
     calculator.setExpression({
         id: u_id, latex: expression, color: Desmos.Colors.RED
+    })
+}
+
+function setSystemExpression1(expression) {
+    calculator.setExpression({
+        id: su_id1, latex: expression, color: Desmos.Colors.ORANGE
+    })
+}
+
+function setSystemExpression2(expression) {
+    calculator.setExpression({
+        id: su_id2, latex: expression, color: Desmos.Colors.ORANGE
     })
 }
 

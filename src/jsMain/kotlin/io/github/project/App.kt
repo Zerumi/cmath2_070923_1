@@ -1,10 +1,7 @@
 package io.github.project
 
 import io.github.project.parse.parseStringDesmosLatex
-import io.github.project.view.a
-import io.github.project.view.b
-import io.github.project.view.equation
-import io.github.project.view.mainView
+import io.github.project.view.*
 import io.kvision.*
 import io.kvision.panel.root
 import io.kvision.theme.Theme
@@ -20,6 +17,9 @@ val AppScope = CoroutineScope(Dispatchers.Default + SupervisorJob())
 external fun setExpression(expression: String)
 external fun setLeftBorder(a: Double)
 external fun setRightBorder(b: Double)
+
+external fun setSystemExpression1(expression: String)
+external fun setSystemExpression2(expression: String)
 
 class App : Application() {
 
@@ -47,6 +47,13 @@ class App : Application() {
         AppScope.launch {
             b.subscribe {
                 setRightBorder(it + abs(it) * 0.1)
+            }
+        }
+        AppScope.launch {
+            equations.subscribe {
+                if (equations.size != 2) return@subscribe
+                setSystemExpression1("${parseStringDesmosLatex(it[0]).replace("=0","")}=0")
+                setSystemExpression2("${parseStringDesmosLatex(it[1]).replace("=0","")}=0")
             }
         }
     }
