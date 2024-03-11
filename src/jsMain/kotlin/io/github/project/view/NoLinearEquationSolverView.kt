@@ -19,7 +19,7 @@ fun Container.noLinearEquationSolverView() {
         }
         options(2) {
             graphShowPanel()
-            solutionPanel()
+            solutionEquationPanel()
         }
     }
 }
@@ -90,10 +90,10 @@ fun Container.graphShowPanel() {
     customTag("script", attributes = mapOf(Pair("src", "graph.js")))
 }
 
-lateinit var solutionPanel: Div
+lateinit var solutionEquationPanel: Div
 
-fun Container.solutionPanel() {
-    solutionPanel = div (className = "solution_element") {
+fun Container.solutionEquationPanel() {
+    solutionEquationPanel = div (className = "solution_element") {
         p("Your solution will appear here...")
     }
 }

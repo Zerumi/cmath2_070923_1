@@ -1,7 +1,9 @@
 package io.github.project.data.system
 
 import io.github.project.data.EquationError
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class EquationSystemResult(
     val validResult: Boolean,
     val equationSystemError: EquationError,

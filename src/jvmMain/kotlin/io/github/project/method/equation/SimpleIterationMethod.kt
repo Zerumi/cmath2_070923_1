@@ -12,7 +12,7 @@ class SimpleIterationMethod : IEquationSolvingMethod {
 
     private lateinit var equation: String
 
-    fun calculateDer(x: Double): Double {
+    private fun calculateDer(x: Double): Double {
         return EquationService.calculateDerivative(equation, x)
     }
 
