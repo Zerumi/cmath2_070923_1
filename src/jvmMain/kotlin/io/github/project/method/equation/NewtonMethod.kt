@@ -22,7 +22,7 @@ class NewtonMethod : IEquationSolvingMethod {
             if (yRes * ySecondDer <= 0)
                 throw LowEfficiencyMethodException()
 
-            xRes -= (yRes / yFirstDer)
+            xRes -= yRes / yFirstDer
             yRes = EquationService.calculateFunction(f, xRes)
             iterations++
         }
