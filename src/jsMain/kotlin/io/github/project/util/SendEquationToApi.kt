@@ -25,7 +25,7 @@ val sendEquationToApi: Button.(MouseEvent) -> Unit = {
                 br()
                 label("Function Result: ${result.functionResult}")
                 br()
-                label("Solved by method: ${result.equationSolvingMethod}")
+                label("Solved by method: ${result.equationSolvingMethod.displayName}")
                 br()
                 label("Amount of iterations: ${result.amountOfIterations}")
                 br()

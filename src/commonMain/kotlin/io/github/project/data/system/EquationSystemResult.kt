@@ -8,14 +8,14 @@ data class EquationSystemResult(
     val validResult: Boolean,
     val equationSystemError: EquationError,
     val equationSolvingMethod: EquationSystemSolvingMethod,
-    val resultVector: List<Double>,
+    val resultVector: Map<String, Double>,
     val amountOfIterations: UInt,
     val errorVector: List<Double>,
 ) {
     companion object {
         fun ok(
             equationSolvingMethod: EquationSystemSolvingMethod,
-            resultVector: List<Double>,
+            resultVector: Map<String, Double>,
             amountOfIterations: UInt,
             errorVector: List<Double>
         ): EquationSystemResult {
@@ -29,7 +29,7 @@ data class EquationSystemResult(
             equationSolvingMethod: EquationSystemSolvingMethod
         ): EquationSystemResult {
             return EquationSystemResult(
-                false, equationSystemError, equationSolvingMethod, emptyList(), 0u, emptyList()
+                false, equationSystemError, equationSolvingMethod, emptyMap(), 0u, emptyList()
             )
         }
     }

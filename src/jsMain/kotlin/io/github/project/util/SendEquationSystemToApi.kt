@@ -22,9 +22,11 @@ val sendEquationSystemToApi: Button.(MouseEvent) -> Unit = {
         solutionSystemPanel.removeAll()
         solutionSystemPanel.add(if (result.validResult) {
             div {
-                label("Solution: ${result.resultVector.joinToString()}}")
+                label("Solution: [${result.resultVector.map { it.key to it.value }.toList().joinToString()}")
                 br()
-                label("Solved by method: ${result.equationSolvingMethod}")
+                label("Solution error: [${result.errorVector.joinToString()}]")
+                br()
+                label("Solved by method: ${result.equationSolvingMethod.displayName}")
                 br()
                 label("Amount of iterations: ${result.amountOfIterations}")
                 br()

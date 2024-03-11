@@ -18,9 +18,9 @@ import kotlin.math.abs
 class NewtonMethod : ISystemSolvingMethod {
 
     override fun solveSystem(equationSystemParams: EquationSystemParams): EquationSystemResult {
-        try {
-            var iterations = 0u
+        var iterations = 0u
 
+        try {
             val foundSymbols = mutableSetOf<String>()
             equationSystemParams.equations.map { it ->
                 val regex = Regex("""[a-z](_[0-9]*|)""")
@@ -83,7 +83,7 @@ class NewtonMethod : ISystemSolvingMethod {
 
             return EquationSystemResult.ok(
                 EquationSystemSolvingMethod.NEWTON_METHOD,
-                result.map { it.value }.toList(),
+                result,
                 iterations,
                 calculateErrorVector(equationSystemParams.equations, result)
             )
