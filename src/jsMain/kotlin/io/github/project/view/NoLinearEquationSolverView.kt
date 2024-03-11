@@ -1,7 +1,7 @@
 package io.github.project.view
 
-import io.github.project.data.SolvingMethod
-import io.github.project.util.availableMethods
+import io.github.project.data.equation.EquationSolvingMethod
+import io.github.project.util.availableEquationMethods
 import io.github.project.util.sendEquationToApi
 import io.kvision.core.Container
 import io.kvision.core.Display
@@ -28,7 +28,7 @@ val equation = ObservableValue("")
 val a = ObservableValue(-5.0)
 val b = ObservableValue(5.0)
 val epsilon = ObservableValue(0.005)
-val sMethod = ObservableValue(SolvingMethod.HALF_DIVISION_METHOD)
+val sMethod = ObservableValue(EquationSolvingMethod.HALF_DIVISION_METHOD)
 
 fun Container.equationInputPanel() {
     div (className = "input_element") {
@@ -68,11 +68,11 @@ fun Container.equationInputPanel() {
                 } else epsilon.setState(0.005)
             }
             select {
-                options = availableMethods
+                options = availableEquationMethods
                 selectedIndex = 0
             }.subscribe {
                 if (it != null) {
-                    sMethod.setState(enumValueOf<SolvingMethod>(it))
+                    sMethod.setState(enumValueOf<EquationSolvingMethod>(it))
                 }
             }
             button("Submit") {

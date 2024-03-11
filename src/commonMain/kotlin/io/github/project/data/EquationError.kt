@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class EquationError(
-    val errorCode: Int, val errorMessage: String
+    val errorCode: Int, val errorMessage: String,
 ) {
     companion object {
         fun ok(): EquationError {

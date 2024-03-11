@@ -13,13 +13,17 @@ import org.mariuszgromada.math.mxparser.mXparser
 
 fun Application.main() {
     install(Compression)
+
     routing {
         getAllServiceManagers().forEach { applyRoutes(it) }
     }
+
     val module = module {
         factoryOf(::PingService)
         factoryOf(::EquationService)
+        factoryOf(::EquationSystemService)
     }
+
     kvisionInit(module)
 
     License.iConfirmNonCommercialUse("367837@edu.itmo.ru")

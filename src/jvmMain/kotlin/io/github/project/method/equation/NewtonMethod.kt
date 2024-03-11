@@ -1,13 +1,13 @@
-package io.github.project.method
+package io.github.project.method.equation
 
 import io.github.project.EquationService
-import io.github.project.data.EquationParams
-import io.github.project.data.EquationResult
-import io.github.project.data.SolvingMethod
+import io.github.project.data.equation.EquationParams
+import io.github.project.data.equation.EquationResult
+import io.github.project.data.equation.EquationSolvingMethod
 import io.github.project.exception.LowEfficiencyMethodException
 import kotlin.math.abs
 
-class NewtonMethod : ISolvingMethod {
+class NewtonMethod : IEquationSolvingMethod {
     override fun solveEquation(equationParams: EquationParams): EquationResult {
         val f = equationParams.equation
 
@@ -27,6 +27,6 @@ class NewtonMethod : ISolvingMethod {
             iterations++
         }
 
-        return EquationResult.ok(SolvingMethod.NEWTON_METHOD, xRes, yRes, iterations)
+        return EquationResult.ok(EquationSolvingMethod.NEWTON_METHOD, xRes, yRes, iterations)
     }
 }

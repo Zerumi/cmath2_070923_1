@@ -1,11 +1,11 @@
-package io.github.project.method
+package io.github.project.method.equation
 
 import io.github.project.EquationService
-import io.github.project.data.EquationParams
-import io.github.project.data.EquationResult
-import io.github.project.data.SolvingMethod
+import io.github.project.data.equation.EquationParams
+import io.github.project.data.equation.EquationResult
+import io.github.project.data.equation.EquationSolvingMethod
 
-class HalfDivisionMethod : ISolvingMethod {
+class HalfDivisionMethod : IEquationSolvingMethod {
     override fun solveEquation(equationParams: EquationParams): EquationResult {
         val equation = equationParams.equation
         val epsilon = equationParams.epsilon
@@ -33,6 +33,6 @@ class HalfDivisionMethod : ISolvingMethod {
         val xRes = (a + b) / 2
         val yRes = EquationService.calculateFunction(equation, xRes)
 
-        return EquationResult.ok(SolvingMethod.HALF_DIVISION_METHOD, xRes, yRes, iterations)
+        return EquationResult.ok(EquationSolvingMethod.HALF_DIVISION_METHOD, xRes, yRes, iterations)
     }
 }

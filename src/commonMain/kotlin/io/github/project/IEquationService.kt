@@ -1,7 +1,7 @@
 package io.github.project
 
-import io.github.project.data.EquationParams
-import io.github.project.data.EquationResult
+import io.github.project.data.equation.EquationParams
+import io.github.project.data.equation.EquationResult
 import io.kvision.annotations.KVService
 
 @KVService

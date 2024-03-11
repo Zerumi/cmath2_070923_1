@@ -10,5 +10,4 @@ object Model {
     suspend fun ping(message: String): String {
         return pingService.ping(message)
     }
-
 }

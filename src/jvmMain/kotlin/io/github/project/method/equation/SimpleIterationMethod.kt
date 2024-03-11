@@ -1,14 +1,14 @@
-package io.github.project.method
+package io.github.project.method.equation
 
 import io.github.project.EquationService
-import io.github.project.data.EquationParams
-import io.github.project.data.EquationResult
-import io.github.project.data.SolvingMethod
+import io.github.project.data.equation.EquationParams
+import io.github.project.data.equation.EquationResult
+import io.github.project.data.equation.EquationSolvingMethod
 import io.github.project.exception.LowEfficiencyMethodException
 import io.github.project.util.FunctionUtil
 import kotlin.math.abs
 
-class SimpleIterationMethod : ISolvingMethod {
+class SimpleIterationMethod : IEquationSolvingMethod {
 
     private lateinit var equation: String
 
@@ -45,7 +45,7 @@ class SimpleIterationMethod : ISolvingMethod {
         }
 
         return EquationResult.ok(
-            SolvingMethod.SIMPLE_ITERATION_METHOD,
+            EquationSolvingMethod.SIMPLE_ITERATION_METHOD,
             xNext,
             EquationService.calculateFunction(equation, xNext),
             iterations

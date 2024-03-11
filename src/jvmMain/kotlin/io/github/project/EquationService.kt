@@ -1,20 +1,23 @@
 package io.github.project
 
 import io.github.project.data.EquationError
-import io.github.project.data.EquationParams
-import io.github.project.data.EquationResult
-import io.github.project.data.SolvingMethod
+import io.github.project.data.equation.EquationParams
+import io.github.project.data.equation.EquationResult
+import io.github.project.data.equation.EquationSolvingMethod
 import io.github.project.exception.*
-import io.github.project.method.HalfDivisionMethod
-import io.github.project.method.NewtonMethod
-import io.github.project.method.SimpleIterationMethod
+import io.github.project.method.equation.HalfDivisionMethod
+import io.github.project.method.equation.NewtonMethod
+import io.github.project.method.equation.SimpleIterationMethod
 import org.mariuszgromada.math.mxparser.Argument
 import org.mariuszgromada.math.mxparser.Expression
 
 actual class EquationService : IEquationService {
     companion object {
+        fun validateEpsilon(epsilon : Double) {
+            if (epsilon <= 0) throw TooLowEpsilonException()
+        }
         fun validateFunction(equationParams: EquationParams) {
-            if (equationParams.epsilon <= 0) throw TooLowEpsilonException()
+            validateEpsilon(equationParams.epsilon)
 
             val fA = calculateFunction(equationParams.equation, equationParams.a)
             val fB = calculateFunction(equationParams.equation, equationParams.b)
@@ -42,19 +45,19 @@ actual class EquationService : IEquationService {
     }
 
     private val methods = mapOf(
-        Pair(SolvingMethod.HALF_DIVISION_METHOD, HalfDivisionMethod()),
-        Pair(SolvingMethod.NEWTON_METHOD, NewtonMethod()),
-        Pair(SolvingMethod.SIMPLE_ITERATION_METHOD, SimpleIterationMethod()),
+        Pair(EquationSolvingMethod.HALF_DIVISION_METHOD, HalfDivisionMethod()),
+        Pair(EquationSolvingMethod.NEWTON_METHOD, NewtonMethod()),
+        Pair(EquationSolvingMethod.SIMPLE_ITERATION_METHOD, SimpleIterationMethod()),
     )
 
     override suspend fun solveEquation(equationParams: EquationParams): EquationResult {
         try {
             validateFunction(equationParams)
-            return methods[equationParams.solvingMethod]?.solveEquation(equationParams)
+            return methods[equationParams.equationSolvingMethod]?.solveEquation(equationParams)
                 ?: throw MethodNotImplementedException()
         } catch (e: CalculationException) {
             return EquationResult.bad(
-                EquationError(e.code, e.message), equationParams.solvingMethod
+                EquationError(e.code, e.message), equationParams.equationSolvingMethod
             )
         }
     }

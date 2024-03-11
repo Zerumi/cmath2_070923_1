@@ -1,7 +1,7 @@
 package io.github.project.util
 
 import io.github.project.AppScope
-import io.github.project.data.EquationParams
+import io.github.project.data.equation.EquationParams
 import io.github.project.model.EquationModel
 import io.github.project.parse.plainToBackParse
 import io.github.project.view.*
@@ -25,7 +25,7 @@ val sendEquationToApi: Button.(MouseEvent) -> Unit = {
                 br()
                 label("Function Result: ${result.functionResult}")
                 br()
-                label("Solved by method: ${result.solvingMethod}")
+                label("Solved by method: ${result.equationSolvingMethod}")
                 br()
                 label("Amount of iterations: ${result.amountOfIterations}")
                 br()

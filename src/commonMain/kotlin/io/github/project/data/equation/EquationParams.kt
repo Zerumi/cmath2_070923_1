@@ -1,4 +1,4 @@
-package io.github.project.data
+package io.github.project.data.equation
 
 import kotlinx.serialization.Serializable
 
@@ -8,5 +8,5 @@ data class EquationParams(
     val a: Double,
     val b: Double,
     val epsilon: Double,
-    val solvingMethod: SolvingMethod,
+    val equationSolvingMethod: EquationSolvingMethod,
 )
