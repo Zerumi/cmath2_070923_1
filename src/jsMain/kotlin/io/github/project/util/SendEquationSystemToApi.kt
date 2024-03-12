@@ -22,7 +22,7 @@ val sendEquationSystemToApi: Button.(MouseEvent) -> Unit = {
         solutionSystemPanel.removeAll()
         solutionSystemPanel.add(if (result.validResult) {
             div {
-                label("Solution: [${result.resultVector.map { it.key to it.value }.toList().joinToString()}")
+                label("Solution: [${result.resultVector.map { it.key to it.value }.toList().joinToString()}]")
                 br()
                 label("Solution error: [${result.errorVector.joinToString()}]")
                 br()
