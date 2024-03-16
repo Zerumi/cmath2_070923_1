@@ -13,14 +13,12 @@ class NewtonMethod : IEquationSolvingMethod {
 
         var iterations = 0u
 
-        var xRes = (equationParams.a + equationParams.b) / 2
+        var xRes = equationParams.a
         var yRes = EquationService.calculateFunction(f, xRes)
 
         while (abs(yRes) > equationParams.epsilon) {
+            if (iterations > 1000u) throw LowEfficiencyMethodException()
             val yFirstDer = EquationService.calculateDerivative(f, xRes)
-            val ySecondDer = EquationService.calculateNDerivative(f, xRes, 2u)
-            if (yRes * ySecondDer <= 0)
-                throw LowEfficiencyMethodException()
 
             xRes -= yRes / yFirstDer
             yRes = EquationService.calculateFunction(f, xRes)

@@ -40,12 +40,6 @@ actual class EquationService : IEquationService {
             val equation = Expression("der(${f}, x)", argument)
             return equation.calculate()
         }
-
-        fun calculateNDerivative(f: String, x: Double, n: UInt): Double {
-            val argument = Argument("x = $x")
-            val equation = Expression("dern(${f}, ${n}, x)", argument)
-            return equation.calculate()
-        }
     }
 
     private val methods = mapOf(
