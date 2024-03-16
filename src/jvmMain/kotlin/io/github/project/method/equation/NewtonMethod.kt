@@ -17,13 +17,14 @@ class NewtonMethod : IEquationSolvingMethod {
         var yRes = EquationService.calculateFunction(f, xRes)
 
         while (abs(yRes) > equationParams.epsilon) {
-            if (iterations > 1000u) throw LowEfficiencyMethodException()
             val yFirstDer = EquationService.calculateDerivative(f, xRes)
 
             xRes -= yRes / yFirstDer
             yRes = EquationService.calculateFunction(f, xRes)
             iterations++
         }
+
+        if (!xRes.isFinite()) throw LowEfficiencyMethodException()
 
         return EquationResult.ok(EquationSolvingMethod.NEWTON_METHOD, xRes, yRes, iterations)
     }
